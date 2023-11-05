@@ -1,0 +1,5 @@
+pyuic5 layout/pdv.ui -o layout/pdvoff.py
+
+pyrcc5 icone/icones.qrc -o icone/icone.py
+
+auto-py-to-exe

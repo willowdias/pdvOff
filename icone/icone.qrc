@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>pdv.png</file>
+  </qresource>
+  <qresource prefix="botoestop">
+    <file>close.png</file>
+    <file>maximizer.png</file>
+    <file>minimze.png</file>
+  </qresource>
+  <qresource prefix="venda">
+    <file>sangria.png</file>
+    <file>cancelar.png</file>
+    <file>excluir.png</file>
+    <file>finalizar.png</file>
+  </qresource>
+</RCC>
