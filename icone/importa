@@ -1,4 +1,8 @@
-pyuic5 layout/pdv.ui -o layout/pdvoff.py
+pyuic5 layout/ui/pdv.ui -o layout/pdvoff.py
+
+pyuic5 layout/ui/finalizarpdv.ui -o layout/finalizarpdv.py
+
+pyuic5 layout/ui/FormPdf.ui -o layout/FormPdf.py
 
 pyrcc5 icone/icones.qrc -o icone/icone.py
 

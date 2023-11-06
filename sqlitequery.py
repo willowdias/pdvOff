@@ -42,4 +42,33 @@ class sqlite_db:
             custo NUMERIC (18,4),
             venda NUMERIC (18,4)
         );''')
+        cur.execute(''' CREATE TABLE IF NOT EXISTS clientes(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome varchar(200),
+            sobrenome char(200),
+            cpf_cnpj INT,
+            rg_inscricao INT,
+            celular INT,
+            telefone INT ,
+            email char(200),
+            obs char(500),
+            cod_ibge INT,
+            cep INT,          
+            cidade char(200),
+            estado char(2),
+            endereco char(500),
+            bairro char(120),
+            numeroresidencia INT,
+            data_emissao varchar(255),
+            data_aniversario varchar(255),
+            data_ultimaCompra VARCHAR (255),
+            pai               VARCHAR (255),
+            mae               VARCHAR (255),
+            estado_civil      VARCHAR (255),
+            situacao          CHAR (1),
+            sexo              CHAR (1),
+            tipo_cliente      CHAR (1) 
+
+
+        );''')
 db=sqlite_db("database/pdv.db")

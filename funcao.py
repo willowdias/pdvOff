@@ -8,8 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QShortcut
 class pdb_funcao:
     def __init__(self,*args):
         self.objetoClass=args
-        
-        
+
     def add_row(self):
         self.objetoClass[0].setFocus()
 
@@ -28,8 +27,9 @@ class pdb_funcao:
             self.objetoClass[2].setItem(row_position,1, QTableWidgetItem(str(banco[0][2])))
             self.objetoClass[2].setItem(row_position, 2, QTableWidgetItem(str(quantida)))
             self.objetoClass[2].setItem(row_position,3, QTableWidgetItem(str('unidade')))
-            self.objetoClass[2].setItem(row_position,4, QTableWidgetItem(f'R$ {str(float(banco[0][8]))}'))
-            self.objetoClass[2].setItem(row_position,5, QTableWidgetItem(f'R$ {str(float(quantida*banco[0][8]))}'))
+            self.objetoClass[2].setItem(row_position,4, QTableWidgetItem(f'R$ {str(float("{:.2f}".format(banco[0][8])))}'))
+            self.objetoClass[2].setItem(row_position,5, QTableWidgetItem(f'R$ {str(float("{:.2f}".format(quantida*banco[0][8])))}'))
+            
             self.objetoClass[2].selectRow(row_position)#seleciona ultima itens da tela
 
             self.objetoClass[1].setValue(1)
@@ -41,18 +41,19 @@ class pdb_funcao:
     def QuantidadeItensGrade(self):
         self.objetoClass[3].setValue(self.objetoClass[2].rowCount())
     def quantidadeitenproduto(self):#somar produtos tela
-        soma=0
-        total=0
+        precoitens=0
+        totalvenda=0
         for i in range(self.objetoClass[2].rowCount()):
             qtd=str(self.objetoClass[2].item(i, 2).text()).replace('$', '')
             quantidade=float(qtd)
             custo=str(self.objetoClass[2].item(i, 4).text()).replace('R', '').replace('$', '')
             preco=float(custo)
 
-            total+=float(quantidade+preco)
-            soma+=float(preco)
-        self.objetoClass[5].setValue(float(total))
-        self.objetoClass[4].setValue(float(soma))
+            totalvenda+=float(quantidade*preco)
+           
+            precoitens+=float(preco)
+        self.objetoClass[5].setValue(float(totalvenda))
+        self.objetoClass[4].setValue(float(precoitens))
     def removesLinhas(self):
    
         try:
@@ -107,6 +108,8 @@ class pdb_funcao:
             self.objetoClass[1].setFocus(False)
             self.objetoClass[2].setFocus(False)
             self.objetoClass[11].setFocus() 
+               
+            
         else: 
             self.objetoClass[8].setCurrentWidget(self.objetoClass[9])
             self.objetoClass[7].setRowCount(0)

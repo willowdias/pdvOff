@@ -8,6 +8,7 @@
     <file>minimze.png</file>
   </qresource>
   <qresource prefix="venda">
+    <file>lupacliente.png</file>
     <file>sangria.png</file>
     <file>cancelar.png</file>
     <file>excluir.png</file>

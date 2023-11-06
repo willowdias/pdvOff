@@ -1,16 +1,14 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QPushButton, QWidget
 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QHBoxLayout, QPushButton, QLineEdit, QLabel, QWidget,QFrame
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QSpacerItem, QLabel
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QSpacerItem, QSizePolicy
+
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 from icone.icone import*
 from layout.pdvoff import*
 from funcao import*
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+from finalizarpdv import*
 class Pdv(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -37,15 +35,20 @@ class Pdv(QMainWindow):
         self.ui.db_quantidade.editingFinished.connect(self.ui.line_produto.setFocus)
         self.ui.bt_delete_produto.clicked.connect(self.funcoe.removesLinhas)
         #busca itens estoque
-        self.atalho = QShortcut(QKeySequence(Qt.Key_F12), self)
+        self.atalho = QShortcut(QKeySequence("F12"),self)#f12 chama tela
         self.atalho.activated.connect(lambda:self.funcoe.currenttela(True))
-        self.esc = QShortcut(QKeySequence(Qt.Key_Escape), self)
+        self.esc = QShortcut(QKeySequence("Ctrl+F12"),self)#said da tela
         self.esc.activated.connect(lambda:self.funcoe.currenttela(False))   
         self.ui.line_estoque.returnPressed.connect(self.funcoe.buscaProduto)
         #selecionar item tb estoque
         
         self.ui.tab_estoque_itens.installEventFilter(self)
-    def eventFilter(self, obj, event):
+        #finalizar venda 
+        ""
+        self.ui.tb_finalizar.clicked.connect(lambda:Finaliza_pdv(
+            self.ui.db_total_venda
+        ).exec())
+    def eventFilter(self, obj, event):#essa funçao enter para tabela-
         if event.type() == event.KeyPress and obj is self.ui.tab_estoque_itens:
             key = event.key()
             if key == Qt.Key_Return or key == Qt.Key_Enter:
