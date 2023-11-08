@@ -14,7 +14,7 @@ class Pdv(QMainWindow):
         super().__init__()
         self.ui = Ui_pdv_sistem()
         self.ui.setupUi(self)
-        self.showMaximized()
+        
 
         self.funcoe=pdb_funcao(
             self.ui.line_produto,#[0]
@@ -46,7 +46,12 @@ class Pdv(QMainWindow):
         #finalizar venda 
         ""
         self.ui.tb_finalizar.clicked.connect(lambda:Finaliza_pdv(
-            self.ui.db_total_venda
+            self.ui.db_total_venda,#[0]
+            self.ui.tab_itens,#[1]
+            self.ui.db_quantidade_itens,#[2]
+            self.ui.db_total_unitario#[3]
+
+
         ).exec())
     def eventFilter(self, obj, event):#essa funçao enter para tabela-
         if event.type() == event.KeyPress and obj is self.ui.tab_estoque_itens:
@@ -58,6 +63,8 @@ class Pdv(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Pdv()
-    #window.setWindowFlags(Qt.FramelessWindowHint)
+    
     window.show()
+    window.setWindowFlags(Qt.FramelessWindowHint)
+    window.showMaximized()
     sys.exit(app.exec_())

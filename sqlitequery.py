@@ -42,6 +42,29 @@ class sqlite_db:
             custo NUMERIC (18,4),
             venda NUMERIC (18,4)
         );''')
+        cur.execute('''CREATE TABLE IF NOT EXISTS notas(
+                reg INTEGER PRIMARY KEY AUTOINCREMENT,
+                notas int,
+                cod_client varchar(5),
+                nome_cli varchar(200),
+                dt_emissao date,
+                valor NUMERIC (18,4),
+                COD_VEND int ,
+                NOME_VEND  varchar(80) ,
+                status varchar(20)  
+        ); ''')
+        cur.execute('''CREATE TABLE IF NOT EXISTS nota_itens (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nota int,
+            codigo_barra varchar(20),
+            descricao varchar(20),
+            quant  DOUBLE PRECISION, 
+            preco DOUBLE PRECISION, 
+            total NUMERIC(18,4),
+            cod_client int,      
+            nome_cli varchar(80),
+            dt_emissao date
+        ); ''')
         cur.execute(''' CREATE TABLE IF NOT EXISTS clientes(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome varchar(200),

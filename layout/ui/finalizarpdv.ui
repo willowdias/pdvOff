@@ -542,7 +542,7 @@ QTableWidget{
               </item>
               <item row="0" column="2">
                <property name="text">
-                <string>R$ 0,00</string>
+                <string>R$ 0.00</string>
                </property>
               </item>
               <item row="1" column="0">
@@ -557,7 +557,7 @@ QTableWidget{
               </item>
               <item row="1" column="2">
                <property name="text">
-                <string>R$ 0,00</string>
+                <string>R$ 0.00</string>
                </property>
               </item>
               <item row="2" column="0">
@@ -572,7 +572,7 @@ QTableWidget{
               </item>
               <item row="2" column="2">
                <property name="text">
-                <string>R$ 0,00</string>
+                <string>R$ 0.00</string>
                </property>
               </item>
               <item row="3" column="0">
@@ -587,7 +587,7 @@ QTableWidget{
               </item>
               <item row="3" column="2">
                <property name="text">
-                <string>R$ 0,00</string>
+                <string>R$ 0.00</string>
                </property>
               </item>
              </widget>
@@ -665,6 +665,9 @@ border:none;
                     <property name="focusPolicy">
                      <enum>Qt::NoFocus</enum>
                     </property>
+                    <property name="text">
+                     <string/>
+                    </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
                     </property>
@@ -672,7 +675,7 @@ border:none;
                      <bool>true</bool>
                     </property>
                     <property name="placeholderText">
-                     <string>COD</string>
+                     <string>1</string>
                     </property>
                    </widget>
                   </item>
@@ -687,8 +690,11 @@ border:none;
                     <property name="focusPolicy">
                      <enum>Qt::NoFocus</enum>
                     </property>
+                    <property name="text">
+                     <string/>
+                    </property>
                     <property name="placeholderText">
-                     <string>nome cliente</string>
+                     <string>CONSUMIDOR FINAL</string>
                     </property>
                    </widget>
                   </item>

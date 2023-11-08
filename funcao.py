@@ -31,7 +31,7 @@ class pdb_funcao:
             self.objetoClass[2].setItem(row_position,5, QTableWidgetItem(f'R$ {str(float("{:.2f}".format(quantida*banco[0][8])))}'))
             
             self.objetoClass[2].selectRow(row_position)#seleciona ultima itens da tela
-
+            self.objetoClass[0].clear()
             self.objetoClass[1].setValue(1)
             self.QuantidadeItensGrade()#carrega quantidade itens na grade
             self.quantidadeitenproduto()#carregaQauntiade iten por itens
