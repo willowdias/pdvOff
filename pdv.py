@@ -6,9 +6,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 from icone.icone import*
 from layout.pdvoff import*
-from funcao import*
+from pdvfuncao.funcao import*
 from PyQt5.QtCore import Qt
-from finalizarpdv import*
+from pdvfuncao.finalizarpdv import*
 class Pdv(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -28,7 +28,13 @@ class Pdv(QMainWindow):
             self.ui.stackedWidget,#[8]
             self.ui.venda,#[9]
             self.ui.estoque,#[10]
-            self.ui.line_estoque#[11]
+            self.ui.line_estoque,#[11]
+            self.ui.lb_data_emissao,#[12]
+            self.ui.lb_ip,#[13]
+            self.ui.lb_nome_user,#[14]
+            self.ui.tool_menu,#[15]
+            self.ui.actionCadastro_Cliente,#[16]
+            self.ui.actionCadastro_Produto#[17]
             
         )    
         self.ui.line_produto.returnPressed.connect(self.funcoe.add_row)
@@ -49,7 +55,8 @@ class Pdv(QMainWindow):
             self.ui.db_total_venda,#[0]
             self.ui.tab_itens,#[1]
             self.ui.db_quantidade_itens,#[2]
-            self.ui.db_total_unitario#[3]
+            self.ui.db_total_unitario,#[3]
+            self.funcoe.verificacaixaOcupado,#[4]
 
 
         ).exec())

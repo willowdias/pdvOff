@@ -73,6 +73,9 @@ background-color: rgb(59, 117, 176);
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -1316,6 +1319,10 @@ QTableWidget{
 QPushButton{
 padding:15px;
 	font: 11pt &quot;Arial&quot;;
+}
+QToolButton{
+padding:15px;
+	font: 11pt &quot;Arial&quot;;
 }</string>
          </property>
          <property name="frameShape">
@@ -1430,7 +1437,110 @@ padding:15px;
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QToolButton" name="tool_menu">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string>opçao</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../icone/icone.qrc">
+              <normaloff>:/venda/engrenagem.png</normaloff>:/venda/engrenagem.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="shortcut">
+             <string>F1</string>
+            </property>
+            <property name="popupMode">
+             <enum>QToolButton::MenuButtonPopup</enum>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+            <property name="autoRaise">
+             <bool>false</bool>
+            </property>
+            <property name="arrowType">
+             <enum>Qt::NoArrow</enum>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="rodape">
+      <property name="styleSheet">
+       <string notr="true">QFrame{background-color: #2b3157;
+
+}
+QLabel{
+color:white;
+	font: 900 9pt &quot;Arial Black&quot;;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="lb_nome_user">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lb_ip">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lb_data_emissao">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
         </widget>
        </item>
       </layout>
@@ -1438,6 +1548,24 @@ padding:15px;
     </item>
    </layout>
   </widget>
+  <action name="actionCadastro_Cliente">
+   <property name="icon">
+    <iconset resource="../../icone/icone.qrc">
+     <normaloff>:/menupdv/cliente.png</normaloff>:/menupdv/cliente.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cadastro Cliente</string>
+   </property>
+  </action>
+  <action name="actionCadastro_Produto">
+   <property name="icon">
+    <iconset resource="../../icone/icone.qrc">
+     <normaloff>:/menupdv/estoque.png</normaloff>:/menupdv/estoque.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cadastro Produto</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../../icone/icone.qrc"/>

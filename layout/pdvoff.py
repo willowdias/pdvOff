@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'layout/pdv.ui'
+# Form implementation generated from reading ui file 'layout/ui/pdv.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -57,6 +57,7 @@ class Ui_pdv_sistem(object):
         self.widget_tela.setObjectName("widget_tela")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_tela)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame = QtWidgets.QFrame(self.widget_tela)
         self.frame.setMinimumSize(QtCore.QSize(0, 50))
@@ -604,6 +605,10 @@ class Ui_pdv_sistem(object):
 "QPushButton{\n"
 "padding:15px;\n"
 "    font: 11pt \"Arial\";\n"
+"}\n"
+"QToolButton{\n"
+"padding:15px;\n"
+"    font: 11pt \"Arial\";\n"
 "}")
         self.frame_botoes.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_botoes.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -644,9 +649,72 @@ class Ui_pdv_sistem(object):
         self.tb_sangria.setIconSize(QtCore.QSize(25, 25))
         self.tb_sangria.setObjectName("tb_sangria")
         self.horizontalLayout_3.addWidget(self.tb_sangria)
+        self.tool_menu = QtWidgets.QToolButton(self.frame_botoes)
+        self.tool_menu.setFocusPolicy(QtCore.Qt.NoFocus)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/venda/engrenagem.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.tool_menu.setIcon(icon6)
+        self.tool_menu.setIconSize(QtCore.QSize(25, 25))
+        self.tool_menu.setPopupMode(QtWidgets.QToolButton.MenuButtonPopup)
+        self.tool_menu.setToolButtonStyle(QtCore.Qt.ToolButtonTextBesideIcon)
+        self.tool_menu.setAutoRaise(False)
+        self.tool_menu.setArrowType(QtCore.Qt.NoArrow)
+        self.tool_menu.setObjectName("tool_menu")
+        self.horizontalLayout_3.addWidget(self.tool_menu)
         self.verticalLayout_2.addWidget(self.frame_botoes)
+        self.frame_nfce = QtWidgets.QFrame(self.widget_tela)
+        self.frame_nfce.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_nfce.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_nfce.setObjectName("frame_nfce")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_nfce)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_4.addItem(spacerItem6)
+        self.label_9 = QtWidgets.QLabel(self.frame_nfce)
+        self.label_9.setObjectName("label_9")
+        self.horizontalLayout_4.addWidget(self.label_9)
+        self.verticalLayout_2.addWidget(self.frame_nfce)
         self.verticalLayout.addWidget(self.widget_tela)
+        self.rodape = QtWidgets.QFrame(self.centralwidget)
+        self.rodape.setStyleSheet("QFrame{background-color: #2b3157;\n"
+"\n"
+"}\n"
+"QLabel{\n"
+"color:white;\n"
+"    font: 900 9pt \"Arial Black\";\n"
+"}")
+        self.rodape.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.rodape.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.rodape.setObjectName("rodape")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.rodape)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.lb_nome_user = QtWidgets.QLabel(self.rodape)
+        self.lb_nome_user.setText("")
+        self.lb_nome_user.setObjectName("lb_nome_user")
+        self.horizontalLayout_7.addWidget(self.lb_nome_user)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_7.addItem(spacerItem7)
+        self.lb_ip = QtWidgets.QLabel(self.rodape)
+        self.lb_ip.setText("")
+        self.lb_ip.setObjectName("lb_ip")
+        self.horizontalLayout_7.addWidget(self.lb_ip)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_7.addItem(spacerItem8)
+        self.lb_data_emissao = QtWidgets.QLabel(self.rodape)
+        self.lb_data_emissao.setObjectName("lb_data_emissao")
+        self.horizontalLayout_7.addWidget(self.lb_data_emissao)
+        self.verticalLayout.addWidget(self.rodape)
         pdv_sistem.setCentralWidget(self.centralwidget)
+        self.actionCadastro_Cliente = QtWidgets.QAction(pdv_sistem)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/menupdv/cliente.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionCadastro_Cliente.setIcon(icon7)
+        self.actionCadastro_Cliente.setObjectName("actionCadastro_Cliente")
+        self.actionCadastro_Produto = QtWidgets.QAction(pdv_sistem)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(":/menupdv/estoque.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionCadastro_Produto.setIcon(icon8)
+        self.actionCadastro_Produto.setObjectName("actionCadastro_Produto")
 
         self.retranslateUi(pdv_sistem)
         self.stackedWidget.setCurrentIndex(0)
@@ -700,3 +768,9 @@ class Ui_pdv_sistem(object):
         self.bt_delete_produto.setShortcut(_translate("pdv_sistem", "-"))
         self.tb_sangria.setText(_translate("pdv_sistem", "SANGRIA(F9)"))
         self.tb_sangria.setShortcut(_translate("pdv_sistem", "F9"))
+        self.tool_menu.setText(_translate("pdv_sistem", "opçao"))
+        self.tool_menu.setShortcut(_translate("pdv_sistem", "F1"))
+        self.label_9.setText(_translate("pdv_sistem", "TextLabel"))
+        self.lb_data_emissao.setText(_translate("pdv_sistem", "TextLabel"))
+        self.actionCadastro_Cliente.setText(_translate("pdv_sistem", "Cadastro Cliente"))
+        self.actionCadastro_Produto.setText(_translate("pdv_sistem", "Cadastro Produto"))

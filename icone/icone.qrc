@@ -8,10 +8,17 @@
     <file>minimze.png</file>
   </qresource>
   <qresource prefix="venda">
+    <file>engrenagem.png</file>
+    <file>qrnfce.png</file>
+    <file>imprimir.png</file>
     <file>lupacliente.png</file>
     <file>sangria.png</file>
     <file>cancelar.png</file>
     <file>excluir.png</file>
     <file>finalizar.png</file>
+  </qresource>
+  <qresource prefix="menupdv">
+    <file>cliente.png</file>
+    <file>estoque.png</file>
   </qresource>
 </RCC>

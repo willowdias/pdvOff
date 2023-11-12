@@ -15,7 +15,7 @@ class Ui_finalizar(object):
     def setupUi(self, finalizar):
         finalizar.setObjectName("finalizar")
         finalizar.setWindowModality(QtCore.Qt.WindowModal)
-        finalizar.resize(901, 633)
+        finalizar.resize(1036, 721)
         finalizar.setStyleSheet("text-transform: uppercase;")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(finalizar)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -29,24 +29,14 @@ class Ui_finalizar(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.widget_2 = QtWidgets.QWidget(self.widget)
-        self.widget_2.setMinimumSize(QtCore.QSize(500, 0))
-        self.widget_2.setMaximumSize(QtCore.QSize(600, 800))
-        self.widget_2.setObjectName("widget_2")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget_2)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.frame = QtWidgets.QFrame(self.widget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy)
-        self.frame.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.frame.setStyleSheet("\n"
-"QFrame#frame{\n"
+        self.frame_6 = QtWidgets.QFrame(self.widget)
+        self.frame_6.setMaximumSize(QtCore.QSize(16777215, 700))
+        self.frame_6.setStyleSheet("QFrame#frame_6{\n"
 "border-radius:10px;\n"
 "background-color: rgb(59, 117, 176);\n"
 "}\n"
+"\n"
+"\n"
 "QLabel{\n"
 "color:white;\n"
 "}\n"
@@ -55,9 +45,20 @@ class Ui_finalizar(object):
 "    border:none;\n"
 "    color:white;\n"
 "    background-color: transparent;\n"
-"}\n"
-"\n"
-"")
+"}")
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.frame_6)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.frame = QtWidgets.QFrame(self.frame_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy)
+        self.frame.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame.setStyleSheet("")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -73,85 +74,6 @@ class Ui_finalizar(object):
         self.horizontalLayout_4.setSpacing(6)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.verticalLayout_3.addWidget(self.frame_9)
-        self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_3)
-        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_7.setSpacing(3)
-        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.frame_10 = QtWidgets.QFrame(self.frame_3)
-        self.frame_10.setStyleSheet("QFrame{\n"
-"    background-color: #2b3157;\n"
-"border-radius:8px;\n"
-"padding:4px;\n"
-"}\n"
-"QLineEdit{\n"
-"    background-color:transparent;\n"
-"color:white;\n"
-"border:none;\n"
-"}")
-        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_10.setObjectName("frame_10")
-        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.frame_10)
-        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_18.setSpacing(0)
-        self.verticalLayout_18.setObjectName("verticalLayout_18")
-        self.label_8 = QtWidgets.QLabel(self.frame_10)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.label_8.setFont(font)
-        self.label_8.setObjectName("label_8")
-        self.verticalLayout_18.addWidget(self.label_8)
-        self.db_desconto = QtWidgets.QDoubleSpinBox(self.frame_10)
-        self.db_desconto.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.db_desconto.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
-        self.db_desconto.setReadOnly(True)
-        self.db_desconto.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.db_desconto.setProperty("showGroupSeparator", True)
-        self.db_desconto.setMaximum(999999999.0)
-        self.db_desconto.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
-        self.db_desconto.setObjectName("db_desconto")
-        self.verticalLayout_18.addWidget(self.db_desconto)
-        self.horizontalLayout_7.addWidget(self.frame_10)
-        self.frame_11 = QtWidgets.QFrame(self.frame_3)
-        self.frame_11.setStyleSheet("QFrame{\n"
-"    background-color: #2b3157;\n"
-"border-radius:8px;\n"
-"padding:4px;\n"
-"}\n"
-"QLineEdit{\n"
-"    background-color:transparent;\n"
-"color:white;\n"
-"border:none;\n"
-"}")
-        self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_11.setObjectName("frame_11")
-        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.frame_11)
-        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_17.setSpacing(0)
-        self.verticalLayout_17.setObjectName("verticalLayout_17")
-        self.label_9 = QtWidgets.QLabel(self.frame_11)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.label_9.setFont(font)
-        self.label_9.setObjectName("label_9")
-        self.verticalLayout_17.addWidget(self.label_9)
-        self.db_total_venda = QtWidgets.QDoubleSpinBox(self.frame_11)
-        self.db_total_venda.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.db_total_venda.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
-        self.db_total_venda.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.db_total_venda.setProperty("showGroupSeparator", True)
-        self.db_total_venda.setMaximum(999999999.0)
-        self.db_total_venda.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
-        self.db_total_venda.setProperty("value", 0.0)
-        self.db_total_venda.setObjectName("db_total_venda")
-        self.verticalLayout_17.addWidget(self.db_total_venda)
-        self.horizontalLayout_7.addWidget(self.frame_11)
-        self.verticalLayout_3.addWidget(self.frame_3)
         self.frame_4 = QtWidgets.QFrame(self.frame)
         self.frame_4.setStyleSheet("QFrame{\n"
 "    background-color: #2b3157;\n"
@@ -211,6 +133,17 @@ class Ui_finalizar(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.db_valorDocumento = QtWidgets.QDoubleSpinBox(self.groupBox_3)
         self.db_valorDocumento.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.db_valorDocumento.setStyleSheet("QDoubleSpinBox{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 0, 0);\n"
+"\n"
+" selection-background-color: darkgray;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox:focus{\n"
+"    \n"
+"    background-color: rgb(227, 227, 227);\n"
+"}")
         self.db_valorDocumento.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
         self.db_valorDocumento.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.db_valorDocumento.setProperty("showGroupSeparator", True)
@@ -242,8 +175,8 @@ class Ui_finalizar(object):
         self.tb_formPAgmento.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tb_formPAgmento.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.tb_formPAgmento.setObjectName("tb_formPAgmento")
-        self.tb_formPAgmento.setColumnCount(3)
-        self.tb_formPAgmento.setRowCount(4)
+        self.tb_formPAgmento.setColumnCount(4)
+        self.tb_formPAgmento.setRowCount(5)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -253,11 +186,15 @@ class Ui_finalizar(object):
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setVerticalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -265,11 +202,15 @@ class Ui_finalizar(object):
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -277,17 +218,30 @@ class Ui_finalizar(object):
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(2, 3, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(3, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(3, 1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_formPAgmento.setItem(3, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(3, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(4, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(4, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(4, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tb_formPAgmento.setItem(4, 3, item)
         self.tb_formPAgmento.horizontalHeader().setCascadingSectionResizes(False)
-        self.tb_formPAgmento.horizontalHeader().setDefaultSectionSize(140)
+        self.tb_formPAgmento.horizontalHeader().setDefaultSectionSize(80)
         self.tb_formPAgmento.horizontalHeader().setSortIndicatorShown(False)
-        self.tb_formPAgmento.horizontalHeader().setStretchLastSection(True)
+        self.tb_formPAgmento.horizontalHeader().setStretchLastSection(False)
         self.tb_formPAgmento.verticalHeader().setVisible(False)
         self.tb_formPAgmento.verticalHeader().setCascadingSectionResizes(False)
+        self.tb_formPAgmento.verticalHeader().setHighlightSections(True)
         self.verticalLayout_3.addWidget(self.tb_formPAgmento)
         self.frame_8 = QtWidgets.QFrame(self.frame)
         self.frame_8.setFocusPolicy(QtCore.Qt.NoFocus)
@@ -298,8 +252,16 @@ class Ui_finalizar(object):
 "}\n"
 "QLineEdit{\n"
 "    \n"
+"    font: 900 10pt \"Arial Black\";\n"
 "coloir:balck;\n"
 "border:none;\n"
+"}\n"
+"QLineEdit:focus {\n"
+"  border: 1px solid #d0e3ff;\n"
+"    background-color: rgb(255, 255, 127);\n"
+"}\n"
+"QLineEdit::placeholder {\n"
+"  color: #767e89;\n"
 "}")
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -314,12 +276,16 @@ class Ui_finalizar(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(3)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.line_cod_cliente = QtWidgets.QLineEdit(self.frame_2)
         self.line_cod_cliente.setMinimumSize(QtCore.QSize(0, 40))
         self.line_cod_cliente.setMaximumSize(QtCore.QSize(60, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setItalic(False)
         self.line_cod_cliente.setFont(font)
         self.line_cod_cliente.setFocusPolicy(QtCore.Qt.NoFocus)
         self.line_cod_cliente.setText("")
@@ -330,14 +296,166 @@ class Ui_finalizar(object):
         self.line_nome_cliente = QtWidgets.QLineEdit(self.frame_2)
         self.line_nome_cliente.setMinimumSize(QtCore.QSize(0, 40))
         self.line_nome_cliente.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.line_nome_cliente.setStyleSheet("")
         self.line_nome_cliente.setText("")
         self.line_nome_cliente.setObjectName("line_nome_cliente")
         self.horizontalLayout_2.addWidget(self.line_nome_cliente)
+        self.line_cpf = QtWidgets.QLineEdit(self.frame_2)
+        self.line_cpf.setMinimumSize(QtCore.QSize(0, 40))
+        self.line_cpf.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.line_cpf.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.line_cpf.setMaxLength(11)
+        self.line_cpf.setObjectName("line_cpf")
+        self.horizontalLayout_2.addWidget(self.line_cpf)
         self.verticalLayout_11.addWidget(self.frame_2)
+        self.line_endereco = QtWidgets.QLineEdit(self.frame_8)
+        self.line_endereco.setMinimumSize(QtCore.QSize(0, 40))
+        self.line_endereco.setSizeIncrement(QtCore.QSize(0, 40))
+        self.line_endereco.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.line_endereco.setObjectName("line_endereco")
+        self.verticalLayout_11.addWidget(self.line_endereco)
         self.verticalLayout_3.addWidget(self.frame_8)
-        self.frame_5 = QtWidgets.QFrame(self.frame)
-        self.frame_5.setStyleSheet("QFrame{background-color: #2b3157;\n"
+        self.horizontalLayout_8.addWidget(self.frame)
+        self.frame_3 = QtWidgets.QFrame(self.frame_6)
+        self.frame_3.setStyleSheet("")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_7.setContentsMargins(5, 5, 5, 5)
+        self.verticalLayout_7.setSpacing(3)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        spacerItem1 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_7.addItem(spacerItem1)
+        self.frame_desconto = QtWidgets.QFrame(self.frame_3)
+        self.frame_desconto.setStyleSheet("QFrame{\n"
+"    background-color: #2b3157;\n"
+"border-radius:8px;\n"
+"padding:4px;\n"
+"}\n"
+"QLineEdit{\n"
+"    background-color:transparent;\n"
+"color:white;\n"
+"border:none;\n"
+"}")
+        self.frame_desconto.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_desconto.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_desconto.setObjectName("frame_desconto")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.frame_desconto)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.label_8 = QtWidgets.QLabel(self.frame_desconto)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout_18.addWidget(self.label_8)
+        self.frame_10 = QtWidgets.QFrame(self.frame_desconto)
+        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setObjectName("frame_10")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_10)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_7.addItem(spacerItem2)
+        self.db_desconto = QtWidgets.QDoubleSpinBox(self.frame_10)
+        self.db_desconto.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.db_desconto.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.db_desconto.setStyleSheet("QDoubleSpinBox{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 0, 0);\n"
+" selection-background-color: darkgray;\n"
+"}\n"
 "\n"
+"QDoubleSpinBox:focus{\n"
+"    \n"
+"    background-color: rgb(227, 227, 227);\n"
+"}")
+        self.db_desconto.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.db_desconto.setReadOnly(True)
+        self.db_desconto.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.db_desconto.setProperty("showGroupSeparator", True)
+        self.db_desconto.setMaximum(999999999.0)
+        self.db_desconto.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
+        self.db_desconto.setObjectName("db_desconto")
+        self.horizontalLayout_7.addWidget(self.db_desconto)
+        self.verticalLayout_18.addWidget(self.frame_10)
+        self.verticalLayout_7.addWidget(self.frame_desconto)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_7.addItem(spacerItem3)
+        self.frame_7 = QtWidgets.QFrame(self.frame_3)
+        self.frame_7.setStyleSheet("QFrame{\n"
+"    background-color: #2b3157;\n"
+"border-radius:8px;\n"
+"padding:4px;\n"
+"}\n"
+"QLineEdit{\n"
+"    background-color:transparent;\n"
+"color:white;\n"
+"border:none;\n"
+"}")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.frame_7)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label = QtWidgets.QLabel(self.frame_7)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout_5.addWidget(self.label)
+        self.db_troco = QtWidgets.QDoubleSpinBox(self.frame_7)
+        self.db_troco.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.db_troco.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.db_troco.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.db_troco.setProperty("showGroupSeparator", True)
+        self.db_troco.setMaximum(999999999.0)
+        self.db_troco.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
+        self.db_troco.setObjectName("db_troco")
+        self.verticalLayout_5.addWidget(self.db_troco)
+        self.verticalLayout_7.addWidget(self.frame_7)
+        self.frame_11 = QtWidgets.QFrame(self.frame_3)
+        self.frame_11.setStyleSheet("QFrame{\n"
+"    background-color: #2b3157;\n"
+"border-radius:8px;\n"
+"padding:4px;\n"
+"}\n"
+"QLineEdit{\n"
+"    background-color:transparent;\n"
+"color:white;\n"
+"border:none;\n"
+"}")
+        self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_11.setObjectName("frame_11")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.frame_11)
+        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.label_9 = QtWidgets.QLabel(self.frame_11)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_9.setFont(font)
+        self.label_9.setObjectName("label_9")
+        self.verticalLayout_17.addWidget(self.label_9)
+        self.db_total_venda = QtWidgets.QDoubleSpinBox(self.frame_11)
+        self.db_total_venda.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.db_total_venda.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.db_total_venda.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.db_total_venda.setProperty("showGroupSeparator", True)
+        self.db_total_venda.setMaximum(999999999.0)
+        self.db_total_venda.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
+        self.db_total_venda.setProperty("value", 0.0)
+        self.db_total_venda.setObjectName("db_total_venda")
+        self.verticalLayout_17.addWidget(self.db_total_venda)
+        self.verticalLayout_7.addWidget(self.frame_11)
+        self.frame_5 = QtWidgets.QFrame(self.frame_3)
+        self.frame_5.setStyleSheet("QFrame{\n"
+"        background-color: #2b3157;\n"
+"border-radius:8px;\n"
+"padding:4px;\n"
 "}\n"
 "QPushButton{\n"
 "padding:15px;\n"
@@ -364,11 +482,26 @@ class Ui_finalizar(object):
         self.bt_cancelar.setIconSize(QtCore.QSize(30, 30))
         self.bt_cancelar.setObjectName("bt_cancelar")
         self.horizontalLayout_6.addWidget(self.bt_cancelar)
-        self.verticalLayout_3.addWidget(self.frame_5)
-        self.verticalLayout.addWidget(self.frame)
+        self.verticalLayout_7.addWidget(self.frame_5)
+        self.horizontalLayout_8.addWidget(self.frame_3)
+        self.horizontalLayout.addWidget(self.frame_6)
+        self.widget_2 = QtWidgets.QWidget(self.widget)
+        self.widget_2.setMinimumSize(QtCore.QSize(0, 0))
+        self.widget_2.setMaximumSize(QtCore.QSize(900, 800))
+        self.widget_2.setStyleSheet("QDoubleSpinBox{\n"
+"    font: 900 15pt \"Arial Black\";\n"
+"    border:none;\n"
+"    color:white;\n"
+"    background-color: transparent;\n"
+"}\n"
+"")
+        self.widget_2.setObjectName("widget_2")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget_2)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout.addWidget(self.widget_2)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem4)
         self.verticalLayout_2.addWidget(self.widget)
         self.actioncodCliente = QtWidgets.QAction(finalizar)
         icon2 = QtGui.QIcon()
@@ -384,10 +517,6 @@ class Ui_finalizar(object):
     def retranslateUi(self, finalizar):
         _translate = QtCore.QCoreApplication.translate
         finalizar.setWindowTitle(_translate("finalizar", "finalizarPdv"))
-        self.label_8.setText(_translate("finalizar", "desconto (f12)"))
-        self.db_desconto.setPrefix(_translate("finalizar", "R$ "))
-        self.label_9.setText(_translate("finalizar", "total Venda"))
-        self.db_total_venda.setPrefix(_translate("finalizar", "R$ "))
         self.groupBox_2.setTitle(_translate("finalizar", "cod doc"))
         self.line_doc.setText(_translate("finalizar", "1"))
         self.groupBox_3.setTitle(_translate("finalizar", "valor doc"))
@@ -400,12 +529,16 @@ class Ui_finalizar(object):
         item.setText(_translate("finalizar", "New Row"))
         item = self.tb_formPAgmento.verticalHeaderItem(3)
         item.setText(_translate("finalizar", "New Row"))
+        item = self.tb_formPAgmento.verticalHeaderItem(4)
+        item.setText(_translate("finalizar", "New Row"))
         item = self.tb_formPAgmento.horizontalHeaderItem(0)
         item.setText(_translate("finalizar", "cod"))
         item = self.tb_formPAgmento.horizontalHeaderItem(1)
         item.setText(_translate("finalizar", "descricao"))
         item = self.tb_formPAgmento.horizontalHeaderItem(2)
         item.setText(_translate("finalizar", "valor R$"))
+        item = self.tb_formPAgmento.horizontalHeaderItem(3)
+        item.setText(_translate("finalizar", "Aprazo"))
         __sortingEnabled = self.tb_formPAgmento.isSortingEnabled()
         self.tb_formPAgmento.setSortingEnabled(False)
         item = self.tb_formPAgmento.item(0, 0)
@@ -414,27 +547,51 @@ class Ui_finalizar(object):
         item.setText(_translate("finalizar", "dinheiro"))
         item = self.tb_formPAgmento.item(0, 2)
         item.setText(_translate("finalizar", "R$ 0.00"))
+        item = self.tb_formPAgmento.item(0, 3)
+        item.setText(_translate("finalizar", "N"))
         item = self.tb_formPAgmento.item(1, 0)
         item.setText(_translate("finalizar", "2"))
         item = self.tb_formPAgmento.item(1, 1)
         item.setText(_translate("finalizar", "cartao/credito"))
         item = self.tb_formPAgmento.item(1, 2)
         item.setText(_translate("finalizar", "R$ 0.00"))
+        item = self.tb_formPAgmento.item(1, 3)
+        item.setText(_translate("finalizar", "N"))
         item = self.tb_formPAgmento.item(2, 0)
         item.setText(_translate("finalizar", "3"))
         item = self.tb_formPAgmento.item(2, 1)
         item.setText(_translate("finalizar", "cartao/debito"))
         item = self.tb_formPAgmento.item(2, 2)
         item.setText(_translate("finalizar", "R$ 0.00"))
+        item = self.tb_formPAgmento.item(2, 3)
+        item.setText(_translate("finalizar", "N"))
         item = self.tb_formPAgmento.item(3, 0)
         item.setText(_translate("finalizar", "4"))
         item = self.tb_formPAgmento.item(3, 1)
         item.setText(_translate("finalizar", "pix"))
         item = self.tb_formPAgmento.item(3, 2)
         item.setText(_translate("finalizar", "R$ 0.00"))
+        item = self.tb_formPAgmento.item(3, 3)
+        item.setText(_translate("finalizar", "N"))
+        item = self.tb_formPAgmento.item(4, 0)
+        item.setText(_translate("finalizar", "5"))
+        item = self.tb_formPAgmento.item(4, 1)
+        item.setText(_translate("finalizar", "duplicata"))
+        item = self.tb_formPAgmento.item(4, 2)
+        item.setText(_translate("finalizar", "R$ 0.00"))
+        item = self.tb_formPAgmento.item(4, 3)
+        item.setText(_translate("finalizar", "S"))
         self.tb_formPAgmento.setSortingEnabled(__sortingEnabled)
         self.line_cod_cliente.setPlaceholderText(_translate("finalizar", "1"))
         self.line_nome_cliente.setPlaceholderText(_translate("finalizar", "CONSUMIDOR FINAL"))
+        self.line_cpf.setPlaceholderText(_translate("finalizar", "CPF"))
+        self.line_endereco.setPlaceholderText(_translate("finalizar", "ENDEREÇO"))
+        self.label_8.setText(_translate("finalizar", "desconto (f12)"))
+        self.db_desconto.setPrefix(_translate("finalizar", "R$ "))
+        self.label.setText(_translate("finalizar", "troco R$"))
+        self.db_troco.setPrefix(_translate("finalizar", "R$ "))
+        self.label_9.setText(_translate("finalizar", "total Venda"))
+        self.db_total_venda.setPrefix(_translate("finalizar", "R$ "))
         self.bt_finalizar.setText(_translate("finalizar", "finalizar(f2)"))
         self.bt_finalizar.setShortcut(_translate("finalizar", "F2"))
         self.bt_cancelar.setText(_translate("finalizar", "cancelar(esc)"))

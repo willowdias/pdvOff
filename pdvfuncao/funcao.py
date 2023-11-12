@@ -1,14 +1,23 @@
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QPushButton, QWidget, QLineEdit
 from PyQt5.QtWidgets import  QMessageBox
-from sqlitequery import*
+from database.sqlitequery import*
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QKeySequence
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QShortcut
+from datetime import datetime,timedelta
 class pdb_funcao:
     def __init__(self,*args):
         self.objetoClass=args
-
+        self.inicial()#essa funçao altera objeto quano inicia sistema
+    
+    def inicial(self):
+        data_e_hora_atuais = datetime.now()
+        self.objetoClass[12].setText(f'Data: {str(data_e_hora_atuais.strftime("%d/%m/%Y"))}')
+        self.objetoClass[13].setText("Serven: 127.0.0.1 ")
+        self.objetoClass[14].setText("usuario: willow")
+        self.objetoClass[15].addAction(self.objetoClass[16])
+        self.objetoClass[15].addAction(self.objetoClass[17])
     def add_row(self):
         self.objetoClass[0].setFocus()
 
@@ -31,7 +40,7 @@ class pdb_funcao:
             self.objetoClass[2].setItem(row_position,5, QTableWidgetItem(f'R$ {str(float("{:.2f}".format(quantida*banco[0][8])))}'))
             
             self.objetoClass[2].selectRow(row_position)#seleciona ultima itens da tela
-            self.objetoClass[0].clear()
+            #self.objetoClass[0].clear()
             self.objetoClass[1].setValue(1)
             self.QuantidadeItensGrade()#carrega quantidade itens na grade
             self.quantidadeitenproduto()#carregaQauntiade iten por itens
@@ -44,14 +53,11 @@ class pdb_funcao:
         precoitens=0
         totalvenda=0
         for i in range(self.objetoClass[2].rowCount()):
-            qtd=str(self.objetoClass[2].item(i, 2).text()).replace('$', '')
-            quantidade=float(qtd)
-            custo=str(self.objetoClass[2].item(i, 4).text()).replace('R', '').replace('$', '')
-            preco=float(custo)
-
-            totalvenda+=float(quantidade*preco)
+            qtItensvenda=float(self.objetoClass[2].item(i, 2).text())
+            precoorigemitem=float(str(self.objetoClass[2].item(i, 4).text()).replace('R', '').replace('$', ''))
+            totalvenda+=float(qtItensvenda*precoorigemitem)
            
-            precoitens+=float(preco)
+            precoitens+=float(precoorigemitem)
         self.objetoClass[5].setValue(float(totalvenda))
         self.objetoClass[4].setValue(float(precoitens))
     def removesLinhas(self):
@@ -100,7 +106,7 @@ class pdb_funcao:
             self.currenttela(False)
         except ValueError as e:
             print(e)
-    def currenttela(self,event=None):
+    def currenttela(self,event=None):#essa funçao seleciona item estoque
         if event==True:#estoquecurret
             
             self.objetoClass[8].setCurrentWidget(self.objetoClass[10]) 

@@ -8,11 +8,11 @@ import os
 import sys
 from PyQt5.QtPrintSupport import QPrinter, QPrintPreviewDialog, QPrintDialog
 class relatoriopdv(QDialog):#essa tela puxa sistema sintegra
-    def __init__(self):
+    def __init__(self,caminho=None):
         super().__init__()
         self.ui = Ui_form_pdf_gerado()
         self.ui.setupUi(self)
-        #self.showMaximized()
+        self.showMaximized()
         
         #add botoes menu
         self.ui.tol_menu.addAction(self.ui.actionenvia_email) 
@@ -22,7 +22,7 @@ class relatoriopdv(QDialog):#essa tela puxa sistema sintegra
         settings.setAttribute(QtWebEngineWidgets.QWebEngineSettings.PluginsEnabled, True)
         settings.setAttribute(QtWebEngineWidgets.QWebEngineSettings.JavascriptEnabled, True)
        
-        url = QtCore.QUrl.fromLocalFile(f'{os.getcwd()}/itens.pdf')
+        url = QtCore.QUrl.fromLocalFile(f'{os.getcwd()}/relatoriopdv/pdvpdf/{caminho}.pdf')
         self.ui.web_browser.load(url)
         self.printer = QPrinter()#chama impressora
         #funçao imprimir 
@@ -34,10 +34,3 @@ class relatoriopdv(QDialog):#essa tela puxa sistema sintegra
             painter = QPainter(printer)
             self.ui.web_browser.render(painter)
             painter.end()
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = relatoriopdv()
-    #window.setWindowFlags(Qt.FramelessWindowHint)
-    window.setWindowFlags(Qt.Drawer|Qt.WindowStaysOnTopHint)
-    window.show()
-    sys.exit(app.exec_())
