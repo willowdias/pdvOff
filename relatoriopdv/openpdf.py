@@ -13,7 +13,7 @@ class relatoriopdv(QDialog):#essa tela puxa sistema sintegra
         self.ui = Ui_form_pdf_gerado()
         self.ui.setupUi(self)
         self.showMaximized()
-        
+        self.setModal(True)
         #add botoes menu
         self.ui.tol_menu.addAction(self.ui.actionenvia_email) 
         self.ui.tol_menu.addAction(self.ui.actionimprimir) 

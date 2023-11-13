@@ -18,6 +18,8 @@ class pdb_funcao:
         self.objetoClass[14].setText("usuario: willow")
         self.objetoClass[15].addAction(self.objetoClass[16])
         self.objetoClass[15].addAction(self.objetoClass[17])
+        self.objetoClass[2].setColumnWidth(0, 100)#codigo barra
+        self.objetoClass[2].setColumnWidth(1, 200)#descricao
     def add_row(self):
         self.objetoClass[0].setFocus()
 

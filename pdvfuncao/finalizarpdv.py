@@ -31,7 +31,7 @@ class Finaliza_pdv(QDialog):
         ###############finalizar Venda NFCE
         self.ui.actioncodCliente.triggered.connect(self.LiberaCliente)
         shortcut = QShortcut(QKeySequence("Ctrl+F2"), self)
-        shortcut.activated.connect(self.geranfce)
+        shortcut.activated.connect(lambda:self.verfiicaparcela("True"))
         #funçaobusca codcliente
         self.ui.line_nome_cliente.returnPressed.connect(
             lambda:self.selecionacodCliente(self.ui.line_nome_cliente.text()))
@@ -105,34 +105,54 @@ class Finaliza_pdv(QDialog):
         self.ui.line_cod_cliente.setText(str(codigo[0][0]))
         self.ui.line_cpf.setText(str(codigo[0][3]))
         self.ui.line_endereco.setText(str(codigo[0][13]))
-    def verfiicaparcela(self):
-        fatura=0
-        somatab=0
-        for i in range(self.ui.tb_formPAgmento.rowCount()):
-            vl=(str(self.ui.tb_formPAgmento.item(i, 2).text()).replace('R','').replace('$',''))
-            vl2=(self.ui.tb_formPAgmento.item(i,3).text())
-            valor=str(self.ui.tb_formPAgmento.item(i, 2).text()).replace('R', '').replace('$', '')    
-            somatab+=float(valor)
-           
-            if float(vl)>0 and vl2=='S':
-                fatura=float(vl)
-        if fatura>0:#verficia se campo tem valor gera parcela
-            if self.ui.line_cod_cliente.text()=="":
-                QMessageBox.information(self,"Clientes","Cliente vazio Gera parcela")
-                self.LiberaCliente()
-            else:
-                self.finalizartb_nota(somatab)
-                pdv_parcela(fatura,self.ui.line_cod_cliente,).exec_()
+    def verfiicaparcela(self,AtivaNfce=None):
+        if float(self.ui.db_total_venda.value())>0:#verficia valo zerado pra finalizar venda
+            pass
         else:
-            self.finalizartb_nota(somatab)
-    def geranfce(self):#essa funçao gera cupo eletronico
-        geranfce(self.objeto[1])
+            fatura=0
+            somatab=0
+            formapagamentorsu=[]
+            for i in range(self.ui.tb_formPAgmento.rowCount()):
+                vl=(str(self.ui.tb_formPAgmento.item(i, 2).text()).replace('R','').replace('$',''))
+                vl2=(self.ui.tb_formPAgmento.item(i,3).text())
+                valor=str(self.ui.tb_formPAgmento.item(i, 2).text()).replace('R', '').replace('$', '')    
+                somatab+=float(valor)
+                formapagamento=str(self.ui.tb_formPAgmento.item(i,1).text().upper())
+                if float(vl)>0:#verifica valor soma para envia para cupom
+                    formapagamentorsu.append(formapagamento)
+                if float(vl)>0 and vl2=='S':
+                    fatura=float(vl)
+            
+            if fatura>0:#verficia se campo tem valor gera parcela
+                if self.ui.line_cod_cliente.text()=="":
+                    QMessageBox.information(self,"Clientes","Cliente vazio Gera parcela")
+                    self.LiberaCliente()
+                else:
+                    if AtivaNfce=="True":
+                        if somatab<1:
+                            pass
+                        else:
+                            self.geranfce(formapagamentorsu)
+                    self.finalizartb_nota(somatab)
+                    pdv_parcela(fatura,self.ui.line_cod_cliente,).exec_()
+            else:
+                if AtivaNfce=="True":
+                    if somatab<1:
+                        pass
+                    else:
+                        self.geranfce(formapagamentorsu)
+                self.finalizartb_nota(somatab)
+    def geranfce(self,formapagamentorsu):#essa funçao gera cupo eletronico
+        
+        geranfce(self.objeto[1],
+                formapagamentorsu
+                 )
         relatoriopdv('nfce').exec()
     def finalizartb_nota(self,somatab):
         data_e_hora_atuais = datetime.now()
         cod_cli=self.ui.line_cod_cliente.text()
         nome_cli=self.ui.line_nome_cliente.text()
-    
+        
         banco=db.select('SELECT notas FROM notas ORDER BY notas DESC LIMIT 1 ')#VERIRICA ULTIMO CODIGO
         try:#CAMUFLA ERRO LIST
             ultimocodigonota=banco[0][0]
@@ -150,17 +170,14 @@ class Finaliza_pdv(QDialog):
         if somatab<=0:
             QMessageBox.information(self,'Tabela Pagamento','Valores Pagamento zerado R$ 0,00')
         else:
+            
             insertnotas=F""" INSERT INTO NOTAS (
                 NOTAS,COD_CLIENT,NOME_CLI,DT_EMISSAO,VALOR)VALUES
                 {f'{ultimocodigonota+1}',f'{cod_cli}',f'{nome_cli}',
                 f'{data_e_hora_atuais.strftime("%d/%m/%Y")}',f'{("{:.2f}".format(somatab))}'}; """
             db.insert(insertnotas)
             self.tabela_itens(ultimocodigonota,data_e_hora_atuais.strftime("%d/%m/%Y"))
-    def limpartabelasapozfinalizar(self):
-        self.objeto[0].setValue(0)
-        self.objeto[1].setRowCount(0)
-        self.objeto[2].setValue(0)
-        self.objeto[3].setValue(0)
+    
     def tabela_itens(self,ultimocodigonota=None,data=None):#gera itens tabelaitens
         ultimocodigo=0
         
@@ -185,4 +202,8 @@ class Finaliza_pdv(QDialog):
         self.objeto[4]()#verifica caixa
         self.close()
 
-        
+    def limpartabelasapozfinalizar(self):
+        self.objeto[0].setValue(0)
+        self.objeto[1].setRowCount(0)
+        self.objeto[2].setValue(0)
+        self.objeto[3].setValue(0)
