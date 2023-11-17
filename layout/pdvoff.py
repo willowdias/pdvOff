@@ -195,7 +195,12 @@ class Ui_pdv_sistem(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.line_produto.setFont(font)
-        self.line_produto.setStyleSheet("")
+        self.line_produto.setStyleSheet("\n"
+"QLineEdit:focus{\n"
+"    \n"
+"    background-color: rgb(255, 255, 127);\n"
+"    color: rgb(0, 0, 0);\n"
+"}")
         self.line_produto.setObjectName("line_produto")
         self.verticalLayout_14.addWidget(self.line_produto)
         self.verticalLayout_13.addWidget(self.frame_2)
@@ -239,6 +244,13 @@ class Ui_pdv_sistem(object):
         self.db_quantidade.setFont(font)
         self.db_quantidade.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.db_quantidade.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.db_quantidade.setStyleSheet("\n"
+"QDoubleSpinBox:focus{\n"
+"    \n"
+"    background-color: rgb(255, 255, 127);\n"
+"    color: rgb(0, 0, 0);\n"
+"\n"
+"}")
         self.db_quantidade.setFrame(True)
         self.db_quantidade.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
         self.db_quantidade.setReadOnly(False)
@@ -271,7 +283,7 @@ class Ui_pdv_sistem(object):
         self.label_4.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(11)
-        font.setBold(True)
+        font.setBold(False)
         font.setItalic(False)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("")
@@ -336,6 +348,39 @@ class Ui_pdv_sistem(object):
         self.db_total_unitario.setObjectName("db_total_unitario")
         self.verticalLayout_4.addWidget(self.db_total_unitario)
         self.verticalLayout_13.addWidget(self.frame_6)
+        self.frame_8 = QtWidgets.QFrame(self.pdv_cod_frame)
+        self.frame_8.setStyleSheet("QFrame{\n"
+"    background-color: #2b3157;\n"
+"border-radius:10px;\n"
+"}")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_8)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.label_8 = QtWidgets.QLabel(self.frame_8)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout_7.addWidget(self.label_8)
+        self.db_desconto = QtWidgets.QDoubleSpinBox(self.frame_8)
+        self.db_desconto.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.db_desconto.setStyleSheet("\n"
+"QDoubleSpinBox:focus{\n"
+"    \n"
+"    background-color: rgb(255, 255, 127);\n"
+"    color: rgb(0, 0, 0);\n"
+"\n"
+"}")
+        self.db_desconto.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.db_desconto.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.db_desconto.setProperty("showGroupSeparator", True)
+        self.db_desconto.setMaximum(999999999.0)
+        self.db_desconto.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
+        self.db_desconto.setObjectName("db_desconto")
+        self.verticalLayout_7.addWidget(self.db_desconto)
+        self.verticalLayout_13.addWidget(self.frame_8)
         self.logo = QtWidgets.QFrame(self.pdv_cod_frame)
         self.logo.setMinimumSize(QtCore.QSize(50, 200))
         self.logo.setStyleSheet("border-image: url(:/logo/pdv.png);")
@@ -396,9 +441,10 @@ class Ui_pdv_sistem(object):
         self.tab_itens.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
         self.tab_itens.setShowGrid(False)
         self.tab_itens.setObjectName("tab_itens")
-        self.tab_itens.setColumnCount(7)
+        self.tab_itens.setColumnCount(8)
         self.tab_itens.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
         self.tab_itens.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tab_itens.setHorizontalHeaderItem(1, item)
@@ -412,6 +458,8 @@ class Ui_pdv_sistem(object):
         self.tab_itens.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.tab_itens.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tab_itens.setHorizontalHeaderItem(7, item)
         self.tab_itens.horizontalHeader().setStretchLastSection(True)
         self.tab_itens.verticalHeader().setVisible(False)
         self.tab_itens.verticalHeader().setHighlightSections(True)
@@ -701,6 +749,8 @@ class Ui_pdv_sistem(object):
         self.label_4.setText(_translate("pdv_sistem", "quantidade itens grade"))
         self.label_6.setText(_translate("pdv_sistem", "total do item r$"))
         self.db_total_unitario.setPrefix(_translate("pdv_sistem", " R$ "))
+        self.label_8.setText(_translate("pdv_sistem", "desconto % (F12)"))
+        self.db_desconto.setPrefix(_translate("pdv_sistem", "% "))
         self.label_2.setText(_translate("pdv_sistem", "lista de produtos"))
         item = self.tab_itens.horizontalHeaderItem(0)
         item.setText(_translate("pdv_sistem", "CODIGO"))
@@ -714,6 +764,8 @@ class Ui_pdv_sistem(object):
         item.setText(_translate("pdv_sistem", "PREÇO R$"))
         item = self.tab_itens.horizontalHeaderItem(5)
         item.setText(_translate("pdv_sistem", "TOTAL ITEM R$"))
+        item = self.tab_itens.horizontalHeaderItem(6)
+        item.setText(_translate("pdv_sistem", "D"))
         self.label_7.setText(_translate("pdv_sistem", "total VENDA r$"))
         self.db_total_venda.setPrefix(_translate("pdv_sistem", "R$ "))
         self.label.setText(_translate("pdv_sistem", "estoque"))

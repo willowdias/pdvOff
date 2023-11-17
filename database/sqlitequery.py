@@ -32,7 +32,7 @@ class sqlite_db:
         cur = self.cursor
         cur.execute(''' CREATE TABLE IF NOT EXISTS tb_estoque(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            codigo_barra varchar(200),
+            codigo_barra varchar(200) UNIQUE,
             descricao varchar(200),
             quant varchar(200),
             codmarca int,
@@ -40,11 +40,13 @@ class sqlite_db:
             codgrupo int,
             grupo varchar(200),
             custo NUMERIC (18,4),
-            venda NUMERIC (18,4)
+            venda NUMERIC (18,4),
+            pr_desconto char(1),
+            ativo char(1)       
         );''')
         cur.execute('''CREATE TABLE IF NOT EXISTS notas(
                 reg INTEGER PRIMARY KEY AUTOINCREMENT,
-                notas int,
+                notas int UNIQUE,
                 cod_client varchar(5),
                 nome_cli varchar(200),
                 dt_emissao date,
@@ -55,7 +57,7 @@ class sqlite_db:
         ); ''')
         cur.execute('''CREATE TABLE IF NOT EXISTS nota_itens (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nota int,
+            nota int UNIQUE,
             codigo_barra varchar(20),
             descricao varchar(20),
             quant  DOUBLE PRECISION, 
@@ -69,7 +71,7 @@ class sqlite_db:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome varchar(200),
             sobrenome char(200),
-            cpf_cnpj INT,
+            cpf_cnpj INT UNIQUE,
             rg_inscricao INT,
             celular INT,
             telefone INT ,

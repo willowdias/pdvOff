@@ -325,65 +325,8 @@ class Ui_finalizar(object):
         self.verticalLayout_7.setContentsMargins(5, 5, 5, 5)
         self.verticalLayout_7.setSpacing(3)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        spacerItem1 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem1)
-        self.frame_desconto = QtWidgets.QFrame(self.frame_3)
-        self.frame_desconto.setStyleSheet("QFrame{\n"
-"    background-color: #2b3157;\n"
-"border-radius:8px;\n"
-"padding:4px;\n"
-"}\n"
-"QLineEdit{\n"
-"    background-color:transparent;\n"
-"color:white;\n"
-"border:none;\n"
-"}")
-        self.frame_desconto.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_desconto.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_desconto.setObjectName("frame_desconto")
-        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.frame_desconto)
-        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_18.setSpacing(0)
-        self.verticalLayout_18.setObjectName("verticalLayout_18")
-        self.label_8 = QtWidgets.QLabel(self.frame_desconto)
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.label_8.setFont(font)
-        self.label_8.setObjectName("label_8")
-        self.verticalLayout_18.addWidget(self.label_8)
-        self.frame_10 = QtWidgets.QFrame(self.frame_desconto)
-        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_10.setObjectName("frame_10")
-        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_10)
-        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_7.addItem(spacerItem2)
-        self.db_desconto = QtWidgets.QDoubleSpinBox(self.frame_10)
-        self.db_desconto.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.db_desconto.setFocusPolicy(QtCore.Qt.NoFocus)
-        self.db_desconto.setStyleSheet("QDoubleSpinBox{\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    color: rgb(0, 0, 0);\n"
-" selection-background-color: darkgray;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox:focus{\n"
-"    \n"
-"    background-color: rgb(227, 227, 227);\n"
-"}")
-        self.db_desconto.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
-        self.db_desconto.setReadOnly(True)
-        self.db_desconto.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.db_desconto.setProperty("showGroupSeparator", True)
-        self.db_desconto.setMaximum(999999999.0)
-        self.db_desconto.setStepType(QtWidgets.QAbstractSpinBox.AdaptiveDecimalStepType)
-        self.db_desconto.setObjectName("db_desconto")
-        self.horizontalLayout_7.addWidget(self.db_desconto)
-        self.verticalLayout_18.addWidget(self.frame_10)
-        self.verticalLayout_7.addWidget(self.frame_desconto)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_7.addItem(spacerItem3)
         self.frame_7 = QtWidgets.QFrame(self.frame_3)
         self.frame_7.setStyleSheet("QFrame{\n"
 "    background-color: #2b3157;\n"
@@ -500,8 +443,8 @@ class Ui_finalizar(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout.addWidget(self.widget_2)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem4)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
         self.verticalLayout_2.addWidget(self.widget)
         self.actioncodCliente = QtWidgets.QAction(finalizar)
         icon2 = QtGui.QIcon()
@@ -586,8 +529,6 @@ class Ui_finalizar(object):
         self.line_nome_cliente.setPlaceholderText(_translate("finalizar", "CONSUMIDOR FINAL"))
         self.line_cpf.setPlaceholderText(_translate("finalizar", "CPF"))
         self.line_endereco.setPlaceholderText(_translate("finalizar", "ENDEREÇO"))
-        self.label_8.setText(_translate("finalizar", "desconto (f12)"))
-        self.db_desconto.setPrefix(_translate("finalizar", "R$ "))
         self.label.setText(_translate("finalizar", "troco R$"))
         self.db_troco.setPrefix(_translate("finalizar", "R$ "))
         self.label_9.setText(_translate("finalizar", "total Venda"))

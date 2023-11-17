@@ -433,7 +433,12 @@ padding:4px;
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true"/>
+                          <string notr="true">
+QLineEdit:focus{
+	
+	background-color: rgb(255, 255, 127);
+	color: rgb(0, 0, 0);
+}</string>
                          </property>
                         </widget>
                        </item>
@@ -506,6 +511,15 @@ border-radius:10px;
                          <property name="layoutDirection">
                           <enum>Qt::LeftToRight</enum>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QDoubleSpinBox:focus{
+	
+	background-color: rgb(255, 255, 127);
+	color: rgb(0, 0, 0);
+
+}</string>
+                         </property>
                          <property name="frame">
                           <bool>true</bool>
                          </property>
@@ -574,7 +588,7 @@ border-radius:10px;
                           <font>
                            <pointsize>11</pointsize>
                            <italic>false</italic>
-                           <bold>true</bold>
+                           <bold>false</bold>
                           </font>
                          </property>
                          <property name="styleSheet">
@@ -704,6 +718,70 @@ border-radius:10px;
                          </property>
                          <property name="maximum">
                           <double>99999999999999.000000000000000</double>
+                         </property>
+                         <property name="stepType">
+                          <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_8">
+                      <property name="styleSheet">
+                       <string notr="true">QFrame{
+	background-color: #2b3157;
+border-radius:10px;
+}</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_7">
+                       <item>
+                        <widget class="QLabel" name="label_8">
+                         <property name="font">
+                          <font>
+                           <pointsize>11</pointsize>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>desconto % (F12)</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QDoubleSpinBox" name="db_desconto">
+                         <property name="focusPolicy">
+                          <enum>Qt::NoFocus</enum>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QDoubleSpinBox:focus{
+	
+	background-color: rgb(255, 255, 127);
+	color: rgb(0, 0, 0);
+
+}</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+                         </property>
+                         <property name="buttonSymbols">
+                          <enum>QAbstractSpinBox::NoButtons</enum>
+                         </property>
+                         <property name="showGroupSeparator" stdset="0">
+                          <bool>true</bool>
+                         </property>
+                         <property name="prefix">
+                          <string>% </string>
+                         </property>
+                         <property name="maximum">
+                          <double>999999999.000000000000000</double>
                          </property>
                          <property name="stepType">
                           <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
@@ -865,6 +943,9 @@ QTableWidget{
                        <property name="text">
                         <string>CODIGO</string>
                        </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
                       </column>
                       <column>
                        <property name="text">
@@ -889,6 +970,11 @@ QTableWidget{
                       <column>
                        <property name="text">
                         <string>TOTAL ITEM R$</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>D</string>
                        </property>
                       </column>
                       <column>

@@ -154,14 +154,12 @@ class Finaliza_pdv(QDialog):
         nome_cli=self.ui.line_nome_cliente.text()
         
         banco=db.select('SELECT notas FROM notas ORDER BY notas DESC LIMIT 1 ')#VERIRICA ULTIMO CODIGO
-        try:#CAMUFLA ERRO LIST
-            ultimocodigonota=banco[0][0]
+        try:
+            valor=banco[0][0]
         except:
-            ultimocodigonota=0
-        
-        if not ultimocodigonota:
-            ultimocodigonota=0
-
+            valor=0
+        if not valor:
+            valor=1
         if cod_cli=="":
             cod_cli='1'
         if nome_cli =="":
@@ -169,18 +167,18 @@ class Finaliza_pdv(QDialog):
 
         if somatab<=0:
             QMessageBox.information(self,'Tabela Pagamento','Valores Pagamento zerado R$ 0,00')
+   
         else:
             
             insertnotas=F""" INSERT INTO NOTAS (
                 NOTAS,COD_CLIENT,NOME_CLI,DT_EMISSAO,VALOR)VALUES
-                {f'{ultimocodigonota+1}',f'{cod_cli}',f'{nome_cli}',
+                {f'{valor+1}',f'{cod_cli}',f'{nome_cli}',
                 f'{data_e_hora_atuais.strftime("%d/%m/%Y")}',f'{("{:.2f}".format(somatab))}'}; """
             db.insert(insertnotas)
-            self.tabela_itens(ultimocodigonota,data_e_hora_atuais.strftime("%d/%m/%Y"))
+            self.tabela_itens(valor,data_e_hora_atuais.strftime("%d/%m/%Y"))
     
     def tabela_itens(self,ultimocodigonota=None,data=None):#gera itens tabelaitens
-        ultimocodigo=0
-        
+     
         for i in range(self.objeto[1].rowCount()):#essa opçapega quantidade iten linha
             codbarra=self.objeto[1].item(i, 0).text()#codbarra
             descricao=self.objeto[1].item(i, 1).text()#descricao
@@ -207,3 +205,4 @@ class Finaliza_pdv(QDialog):
         self.objeto[1].setRowCount(0)
         self.objeto[2].setValue(0)
         self.objeto[3].setValue(0)
+        self.objeto[5].setValue(0)
