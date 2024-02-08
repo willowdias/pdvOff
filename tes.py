@@ -1,51 +1,31 @@
-import sys
-from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QVBoxLayout, QWidget, QStackedWidget
+import os
+import xml.dom.minidom
 
-class FaderWidget(QWidget):
-    def __init__(self, widget1, widget2, parent=None):
-        super(FaderWidget, self).__init__(parent)
+# Pasta contendo os arquivos XML
+pasta = 'Autorizadas'
+
+# Lista para armazenar os valores extraídos de todos os arquivos
+valores = []
+
+# Iterar sobre os arquivos na pasta
+for arquivo in os.listdir(pasta):
+    if arquivo.endswith('.xml'):  # Verificar se o arquivo é XML
+        caminho_arquivo = os.path.join(pasta, arquivo)  # Caminho completo para o arquivo
         
-        self.stackedWidget = QStackedWidget(self)
-        self.stackedWidget.addWidget(widget1)
-        self.stackedWidget.addWidget(widget2)
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.fade)
+        # Analisar o arquivo XML
+        dom_tree = xml.dom.minidom.parse(caminho_arquivo)
+        root = dom_tree.documentElement
         
-      
-        layout = QVBoxLayout(self)
-        layout.addWidget(self.stackedWidget)
-        self.setLayout(layout)
-
-    def fade(self):
-        current_index = self.stackedWidget.currentIndex()
-        next_index = (current_index + 1) % self.stackedWidget.count()
-
-        self.stackedWidget.setCurrentIndex(next_index)
-        self.timer.stop()
-        # Tempo para manter o widget visível antes de alternar para o próximo
+        # Encontrar o elemento 'valor' e extrair seu texto
+        valor = root.getElementsByTagName('vPag')[0].firstChild.nodeValue
         
-    def muda(self):
-        self.timer.start(1000) 
+        # Adicionar o valor à lista de valores
+        valores.append(valor)
 
-def main():
-    app = QApplication(sys.argv)
-    
-    widget1 = QLabel("Widget 1")
-    widget2 = QLabel("Widget 2")
-
-    fader = FaderWidget(widget1, widget2)
-    button = QPushButton("Fade")
-    button.clicked.connect(fader.muda)
-    
-    main_widget = QWidget()
-    layout = QVBoxLayout(main_widget)
-    layout.addWidget(fader)
-    layout.addWidget(button)
-    main_widget.setLayout(layout)
-    
-    main_widget.show()
-    sys.exit(app.exec_())
-
-if __name__ == "__main__":
-    main()
+# Exibir os valores extraídos
+soma_valores = 0.0
+for i, valor in enumerate(valores, start=1):
+    print(f"{valor}")
+    total=float(valor)
+    soma_valores += total
+print(soma_valores)
